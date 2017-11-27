@@ -16,11 +16,6 @@
     </data>
 
     <data>
-        <record id="seq_type_qc_inspection" model="ir.sequence.type">
-            <field name="name">Quality inspection</field>
-            <field name="code">qc.inspection</field>
-        </record>
-
         <record id="seq_qc_inspection" model="ir.sequence">
             <field name="name">Quality inspection</field>
             <field name="code">qc.inspection</field>
