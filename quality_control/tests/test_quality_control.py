@@ -184,7 +184,7 @@ class TestQualityControl(TransactionCase):
 
     def test_qc_inspection_product(self):
         self.inspection1.write({
-            'object_id': '%s,%d' % (self.product._model, self.product.id),
+            'object_id': '%s,%d' % (self.product._name, self.product.id),
         })
         self.assertEquals(self.inspection1.product,
                           self.product)
