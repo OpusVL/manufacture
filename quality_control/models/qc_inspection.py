@@ -232,9 +232,7 @@ class QcInspectionLine(models.Model):
             if self.uom_id.id == self.test_uom_id.id:
                 amount = self.quantitative_value
             else:
-                amount = self.env['product.uom']._compute_qty(
-                    self.uom_id.id, self.quantitative_value,
-                    self.test_uom_id.id)
+                amount = self.uom_id._compute_quantity(self.quantitative_value, self.test_uom_id)
             self.success = self.max_value >= amount >= self.min_value
 
     @api.one
