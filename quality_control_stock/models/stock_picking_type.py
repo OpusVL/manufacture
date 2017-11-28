@@ -11,7 +11,7 @@ class StockPickingType(models.Model):
     @api.multi
     def _create_qc_trigger(self):
         qc_trigger = {
-            'name': self.complete_name,
+            'name': self.name,
             'company_id': self.warehouse_id.company_id.id,
             'picking_type': self.id,
             'partner_selectable': True,
