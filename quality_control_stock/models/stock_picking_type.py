@@ -31,5 +31,5 @@ class StockPickingType(models.Model):
             qc_trigger_model = self.env['qc.trigger'].sudo()
             qc_trigger = qc_trigger_model.search(
                 [('picking_type', '=', self.id)])
-            qc_trigger.name = self.complete_name
+            qc_trigger.name = self.name
         return res
