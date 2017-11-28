@@ -150,7 +150,8 @@
                         <filter string="Responsible"
                                 domain="[]"
                                 context="{'group_by': 'user'}" />
-                        <filter string="Product"
+                        <filter name="product_filter"
+                                string="Product"
                                 domain="[]"
                                 context="{'group_by': 'product'}" />
                         <filter string="State"
@@ -224,7 +225,8 @@
                         <filter string="Inspection"
                                 domain="[]"
                                 context="{'group_by': 'inspection_id'}" />
-                        <filter string="Product"
+                        <filter name="product_filter"
+                                string="Product"
                                 domain="[]"
                                 context="{'group_by': 'product'}" />
                         <filter string="Question"

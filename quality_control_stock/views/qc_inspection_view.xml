@@ -35,7 +35,7 @@
                     <field name="picking" />
                     <field name="lot" groups="stock.group_production_lot" />
                 </field>
-                <filter string="Product" position="after">
+                <filter name="product_filter" position="after">
                     <filter string="Picking"
                             domain="[]"
                             context="{'group_by': 'picking'}" />
@@ -68,7 +68,7 @@
                     <field name="picking" />
                     <field name="lot" />
                 </field>
-                <filter string="Product" position="after">
+                <filter name="product_filter" position="after">
                     <filter string="Picking"
                             domain="[]"
                             context="{'group_by': 'picking'}" />
