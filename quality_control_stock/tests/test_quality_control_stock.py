@@ -211,12 +211,12 @@ class TestQualityControl(TransactionCase):
             [('picking_type', '=', picking_type.id)])
         self.assertEqual(len(trigger), 1,
                          'One trigger must have been created.')
-        self.assertEqual(trigger.name, picking_type.complete_name,
+        self.assertEqual(trigger.name, picking_type.name,
                          'Trigger name must match picking type name.')
         picking_type.write({
             'name': 'Test Name Change',
         })
-        self.assertEqual(trigger.name, picking_type.complete_name,
+        self.assertEqual(trigger.name, picking_type.name,
                          'Trigger name must match picking type name.')
 
     def test_qc_inspection_picking(self):
