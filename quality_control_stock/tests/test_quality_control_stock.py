@@ -31,18 +31,21 @@ class TestQualityControl(TransactionCase):
             'name': 'Lot for tests',
             'product_id': self.product.id,
         })
+        # So we can make pickings from it
+        self.customers_location = self.env['stock.location'].search([('name', '=', 'Customers')])
         move_vals = {
             'name': self.product.name,
             'product_id': self.product.id,
             'product_uom': self.product.uom_id.id,
             'product_uom_qty': 2.0,
             'location_id': self.picking_type.default_location_src_id.id,
-            'location_dest_id': self.picking_type.default_location_dest_id.id,
+            'location_dest_id': self.customers_location.id,
         }
         self.picking1 = self.picking_model.create({
             'partner_id': self.partner1.id,
             'picking_type_id': self.picking_type.id,
             'location_id': self.picking_type.default_location_src_id.id,
+            'location_dest_id': self.customers_location.id,
             'move_lines': [(0, 0, move_vals)],
         })
         self.picking1.action_confirm()
