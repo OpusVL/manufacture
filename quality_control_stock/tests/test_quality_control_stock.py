@@ -18,7 +18,7 @@ class TestQualityControl(TransactionCase):
         self.partner2 = self.env.ref('base.res_partner_4')
         self.test = self.env.ref('quality_control.qc_test_1')
         self.picking_type = self.env.ref('stock.picking_type_out')
-        self.sequence = self.env.ref('stock.seq_type_picking_out')
+        self.sequence = self.env.ref('stock.seq_picking_internal')
         inspection_lines = (
             self.inspection_model._prepare_inspection_lines(self.test))
         self.inspection1 = self.inspection_model.create({
