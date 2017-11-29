@@ -193,11 +193,11 @@ class TestQualityControl(TransactionCase):
         )]
         self.picking1.do_transfer()
         self.assertEqual(self.picking1.created_inspections, 1,
-                         'Only one inspection must be created')
+                         'Only one inspection must be created on picking')
         self.assertEqual(self.picking1.qc_inspections[:1].test, self.test,
                          'Wrong test picked when creating inspection.')
         self.assertEqual(self.lot.created_inspections, 1,
-                         'Only one inspection must be created')
+                         'Only one inspection must be created on lot')
         self.assertEqual(self.lot.qc_inspections[:1].test, self.test,
                          'Wrong test picked when creating inspection.')
 
