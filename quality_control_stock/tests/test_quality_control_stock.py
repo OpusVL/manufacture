@@ -221,7 +221,7 @@ class TestQualityControl(TransactionCase):
 
     def test_qc_inspection_picking(self):
         self.inspection1.write({
-            'object_id': '%s,%d' % (self.picking1._model,
+            'object_id': '%s,%d' % (self.picking1._name,
                                     self.picking1.id),
         })
         self.assertEquals(self.inspection1.picking,
@@ -229,7 +229,7 @@ class TestQualityControl(TransactionCase):
 
     def test_qc_inspection_stock_move(self):
         self.inspection1.write({
-            'object_id': '%s,%d' % (self.picking1.move_lines[:1]._model,
+            'object_id': '%s,%d' % (self.picking1.move_lines[:1]._name,
                                     self.picking1.move_lines[:1].id),
         })
         self.inspection1.onchange_object_id()
@@ -244,7 +244,7 @@ class TestQualityControl(TransactionCase):
 
     def test_qc_inspection_lot(self):
         self.inspection1.write({
-            'object_id': '%s,%d' % (self.lot._model,
+            'object_id': '%s,%d' % (self.lot._name,
                                     self.lot.id),
         })
         self.inspection1.onchange_object_id()
