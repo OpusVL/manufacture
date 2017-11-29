@@ -42,6 +42,7 @@ class TestQualityControl(TransactionCase):
         self.picking1 = self.picking_model.create({
             'partner_id': self.partner1.id,
             'picking_type_id': self.picking_type.id,
+            'location_id': self.picking_type.default_location_src_id.id,
             'move_lines': [(0, 0, move_vals)],
         })
         self.picking1.action_confirm()
