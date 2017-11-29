@@ -26,7 +26,8 @@ class QcInspection(models.Model):
         self.lot = False
         if self.object_id:
             if self.object_id._name == 'stock.pack.operation':
-                self.lot = self.object_id.lot_id
+                # From the stock.move case it looks like it's acceptable to set to multiple lot_id objects
+                self.lot = self.object_id.pack_lot_ids.mapped('lot_id')
             elif self.object_id._name == 'stock.move':
                 self.lot = self.object_id.lot_ids[:1]
             elif self.object_id._name == 'stock.production.lot':
