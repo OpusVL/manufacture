@@ -24,14 +24,22 @@ class QcInspection(models.Model):
     @api.depends('object_id')
     def get_lot(self):
         self.lot = False
+        import sys
+        sys.stderr.write("XXXXXXXXXXXXXXXXXXXXXXXX\n")
+        sys.stderr.write("inspection.object_id: %r\n" % (self.object_id))
         if self.object_id:
             if self.object_id._name == 'stock.pack.operation':
                 # From the stock.move case it looks like it's acceptable to set to multiple lot_id objects
-                self.lot = self.object_id.pack_lot_ids.mapped('lot_id')
+                sys.stderr.write("  .pack_lot_ids: %r\n" % (self.object_id.pack_lot_ids))
+                self.lot = self.object_id.pack_lot_ids[:1].lot_id
+                sys.stderr.write("      .mapped('lot_id'): %r\n" % (self.object_id.pack_lot_ids.mapped('lot_id')))
             elif self.object_id._name == 'stock.move':
+                sys.stderr.write("  .lot_ids: %r\n" % (self.object_id.lot_ids))
                 self.lot = self.object_id.lot_ids[:1]
             elif self.object_id._name == 'stock.production.lot':
                 self.lot = self.object_id
+        sys.stderr.write("inspection.lot: %r\n" % (self.lot))
+        sys.stderr.write("-------------------------\n")
 
     @api.one
     @api.depends('object_id')

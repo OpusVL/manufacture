@@ -191,6 +191,7 @@ class TestQualityControl(TransactionCase):
                 'test': self.test.id,
             }
         )]
+        # import pdb ; pdb.set_trace()
         self.picking1.do_transfer()
         self.assertEqual(self.picking1.created_inspections, 1,
                          'Only one inspection must be created on picking')
